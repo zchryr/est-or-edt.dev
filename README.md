@@ -20,7 +20,7 @@ This website is built with Svelte and automatically updates in real-time. So you
 
 ## Enjoy! 😊
 
-We hope this tiny tool makes your day just a little bit easier. If you like it, feel free to star the repo or share it with your friends!
+I hope this tiny tool makes your day just a little bit easier. If you like it, feel free to star the repo or share it with your friends!
 
 ---
 

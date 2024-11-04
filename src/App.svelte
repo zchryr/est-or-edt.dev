@@ -4,13 +4,30 @@
   let shortResult = '';
   let fullResult = '';
 
+  function getNthSunday(year, month, n) {
+    // Create a date object for the 1st of the month
+    const date = new Date(year, month, 1);
+
+    // Find the first Sunday
+    while (date.getDay() !== 0) {
+      date.setDate(date.getDate() + 1);
+    }
+
+    // Add weeks to get to the nth Sunday
+    date.setDate(date.getDate() + (n - 1) * 7);
+
+    return date;
+  }
+
   function checkEasternTimeZone() {
     const now = new Date();
     const year = now.getFullYear();
 
-    // Define DST start and end dates for the current year
-    const dstStart = new Date(year, 2, 14 - (year % 4)); // Second Sunday in March
-    const dstEnd = new Date(year, 10, 7 - (year % 4)); // First Sunday in November
+    // DST starts on the second Sunday in March
+    const dstStart = getNthSunday(year, 2, 2);
+
+    // DST ends on the first Sunday in November
+    const dstEnd = getNthSunday(year, 10, 1);
 
     // Adjust to 2 AM
     dstStart.setHours(2, 0, 0, 0);
